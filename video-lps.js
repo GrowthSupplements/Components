@@ -2,9 +2,9 @@ function handleMedias() {
   const htmlModeloVeste = document.querySelector(".modelo-veste");
   const htmlModeloAltura = document.querySelector(".modelo-altura");
   const htmlModeloPeso = document.querySelector(".modelo-peso");
-  htmlModeloVeste.textContent = data.modelo.veste;
-  htmlModeloAltura.textContent =  `${data.modelo.altura} m`;
-  htmlModeloPeso.textContent = `${data.modelo.peso} kg`;
+  htmlModeloVeste.textContent = data().modelo.veste;
+  htmlModeloAltura.textContent =  `${data().modelo.altura} m`;
+  htmlModeloPeso.textContent = `${data().modelo.peso} kg`;
 
   const productMedias = document.querySelector(".productMedias");
   const videoModal = document.querySelector(".video__modal");
@@ -13,7 +13,7 @@ function handleMedias() {
         <div class='video__container'>
             <span class='video__close'>&times;</span>
             <video id='video-modal' playsinline muted loop>
-                <source class='video__modal-src' src='${data.video}' type='video/mp4' alt='{{layout.h1}}' />
+                <source class='video__modal-src' src='${data().video}' type='video/mp4' alt='{{layout.h1}}' />
             </video>
             <div class='video__medidas-ctn'>
                 <div class='video__medidas-ctn-title'>
@@ -23,12 +23,12 @@ function handleMedias() {
                 <div class='video__medidas-caracteristicas'>
                     <div class='video__medidas-tamanho'>
                         <span>Modelo veste:</span>
-                        <span class='size'>${data.modelo.veste}</span>
+                        <span class='size'>${data().modelo.veste}</span>
                     </div>
                     <div class='line-wrapper'></div>
                     <div class='video__medidas-info'>
-                        <span class='gray-text'><b class='video__medidas-caracteristicas--color'>Altura:</b> ${data.modelo.altura} m</span>
-                        <span class='gray-text'><b class='video__medidas-caracteristicas--color'>Peso:</b> ${data.modelo.peso} kg</span>
+                        <span class='gray-text'><b class='video__medidas-caracteristicas--color'>Altura:</b> ${data().modelo.altura} m</span>
+                        <span class='gray-text'><b class='video__medidas-caracteristicas--color'>Peso:</b> ${data().modelo.peso} kg</span>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@ function handleMedias() {
                     <span>Ver Vídeo</span>
                 </div>
                 <video id='video-btn' playsinline autoplay muted loop>
-                    <source src='${data.video}' type='video/mp4' alt='{{layout.h1}}' />
+                    <source src='${data().video}' type='video/mp4' alt='{{layout.h1}}' />
                 </video>
             </div>
             <div class='ver-mais-fotos'>
@@ -77,7 +77,7 @@ function appendImages(pai, type) {
   const modal = document.querySelector(".slides-modal");
   const thumbsModal = document.querySelector(".thumbsModal");
 
-  data.images.forEach((image, index) => {
+  data().images.forEach((image, index) => {
     const vitrinePrincipalContent = `
       <div class='medium-6 mediaWrapper '>
           <img src='{{IMAGENS_LAYOUT}}/${image}.webp' onclick='currentSlide(${
