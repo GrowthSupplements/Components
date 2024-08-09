@@ -8,6 +8,9 @@ function handleMedias() {
 
   const productMedias = document.querySelector(".productMedias");
   const videoModal = document.querySelector(".video__modal");
+
+  const renderImages = /%7B%7BIMAGENS_LAYOUT%7D%7D/g;
+
   const videoModalContent = `
       <div class='video__modal-wrapper'>
         <div class='video__container'>
@@ -18,7 +21,7 @@ function handleMedias() {
             <div class='video__medidas-ctn'>
                 <div class='video__medidas-ctn-title'>
                     <h4>Medidas da modelo</h4>
-                    <img class='video__medidas-ctn-icon' src='{{IMAGENS_LAYOUT}}/open-medidas.svg' alt='Medidas.'>
+                    <img class='video__medidas-ctn-icon' src='${renderImages}/open-medidas.svg' alt='Medidas.'>
                 </div>
                 <div class='video__medidas-caracteristicas'>
                     <div class='video__medidas-tamanho'>
@@ -40,7 +43,7 @@ function handleMedias() {
         <div class='buttons'>
             <div class='video__button'>
                 <div class='video__button-text'>
-                    <img src='{{IMAGENS_LAYOUT}}/play-video-button.svg'>
+                    <img src='${renderImages}/play-video-button.svg'>
                     <span>Ver Vídeo</span>
                 </div>
                 <video id='video-btn' playsinline autoplay muted loop>
@@ -48,7 +51,7 @@ function handleMedias() {
                 </video>
             </div>
             <div class='ver-mais-fotos'>
-                <img src='{{IMAGENS_LAYOUT}}/open-modal.svg' alt='Ver mais fotos.'>
+                <img src='${renderImages}/open-modal.svg' alt='Ver mais fotos.'>
                 <span>Ver mais fotos</span>
             </div>
         </div>
@@ -80,7 +83,7 @@ function appendImages(pai, type) {
   data().images.forEach((image, index) => {
     const vitrinePrincipalContent = `
       <div class='medium-6 mediaWrapper '>
-          <img src='{{IMAGENS_LAYOUT}}/${image}.webp' onclick='currentSlide(${
+          <img src='${renderImages}/${image}.webp' onclick='currentSlide(${
       index + 1
     })' class='hover-shadow' alt='{{layout.h1}}'>
       </div>
@@ -89,7 +92,7 @@ function appendImages(pai, type) {
       <div class='mySlides'>
         <span class='close cursor'>&times;</span>
         <div class='numbertext'>1 / ${index + 1}</div>
-        <img src='{{IMAGENS_LAYOUT}}/${image}.webp' alt='{{layout.h1}}'>
+        <img src='${renderImages}/${image}.webp' alt='{{layout.h1}}'>
         <!-- Next/previous controls -->
         <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
         <a class='next' onclick='plusSlides(1)'>&#10095;</a>
@@ -97,7 +100,7 @@ function appendImages(pai, type) {
     `;
     const thumbsModalContent = `
       <div class='column'>
-        <img class='demo' src='{{IMAGENS_LAYOUT}}/${image}.webp' onclick='currentSlide(${
+        <img class='demo' src='${renderImages}/${image}.webp' onclick='currentSlide(${
       index + 1
     })' alt='{{layout.h1}}'>
       </div>
